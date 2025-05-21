@@ -2,8 +2,10 @@ package com.our.testassistantback.service;
 
 import com.our.testassistantback.pojo.Task;
 
+import java.util.List;
+
 public interface TaskService {
-    Task selectAll(Integer pid);
+    List<Task> selectAll(Integer pid);
 
     Task detailById(Integer id);
 

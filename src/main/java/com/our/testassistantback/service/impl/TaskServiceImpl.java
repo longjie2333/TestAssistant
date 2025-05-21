@@ -6,12 +6,14 @@ import com.our.testassistantback.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TaskServiceImpl implements TaskService {
     @Autowired
     private TaskMapper taskMapper;
     @Override
-    public Task selectAll(Integer pid) {
+    public List<Task> selectAll(Integer pid) {
         return taskMapper.selectAll(pid);
     }
 

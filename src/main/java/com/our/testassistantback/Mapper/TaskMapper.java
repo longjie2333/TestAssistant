@@ -5,10 +5,12 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 @Mapper
 public interface TaskMapper {
     @Select("select * from task where pid = #{pid}")
-    Task selectAll(Integer pid);
+    List<Task> selectAll(Integer pid);
 
     @Select("select * from task where id = #{id}")
     Task detailById(Integer id);

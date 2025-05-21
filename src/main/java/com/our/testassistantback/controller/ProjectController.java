@@ -14,6 +14,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
+@RequestMapping("/project")
 public class ProjectController {
 
     @Autowired
@@ -22,18 +23,18 @@ public class ProjectController {
     @Autowired
     private ProjectService projectService;
 
-    @GetMapping("/project/all")
+    @GetMapping("/all")
     public Result getProject(){
         List<Project> projects = projectService.selectProject();
         return Result.success(projects);
     }
-    @GetMapping("/project/detail/:{id}")
+    @GetMapping("/detail/:{id}")
     public Result detailID(@PathVariable Integer id){
         Project project = projectService.detailId(id);
         return Result.success(project);
     }
 
-    @PostMapping("/project/new")
+    @PostMapping("/new")
     public Result addProject(@RequestBody Project project){
         try {
             String authorization = httpServletRequest.getHeader("Authorization");
@@ -49,7 +50,7 @@ public class ProjectController {
         }
         return Result.success();
     }
-    @PostMapping("/project/modify/:{id}")
+    @PostMapping("/modify/:{id}")
     public Result modify(@PathVariable Integer id,@RequestBody Project p){
         int uid = p.getUid();
         String name = p.getName();
@@ -57,7 +58,7 @@ public class ProjectController {
         projectService.modify(id,uid,name,description);
         return Result.success();
     }
-    @PostMapping("/project/delete/:{id}")
+    @PostMapping("/delete/:{id}")
     public Result deleteById(@PathVariable Integer id){
         projectService.deleteById(id);
         return Result.success();

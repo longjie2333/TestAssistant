@@ -7,24 +7,27 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Slf4j
 @RestController
+@RequestMapping("/task")
 public class TaskController {
     @Autowired
     private TaskService testService;
 
-    @GetMapping("/task/all/:{pid}")
+    @GetMapping("/all/:{pid}")
     public Result selectAll(@PathVariable Integer pid){
-        Task task = testService.selectAll(pid);
+        List<Task> task = testService.selectAll(pid);
 
         return Result.success(task);
     }
-    @GetMapping("/task/detail/:{id}")
+    @GetMapping("/detail/:{id}")
     public Result detailById(@PathVariable Integer id){
         Task task = testService.detailById(id);
         return Result.success(task);
     }
-    @PostMapping("/task/new")
+    @PostMapping("/new")
     public Result newTask(@RequestBody Task task){
         int pid = task.getPid();
         String name = task.getName();
@@ -34,12 +37,12 @@ public class TaskController {
 
         return Result.success(id);
     }
-    @PostMapping("/task/modify/:{id}")
+    @PostMapping("/modify/:{id}")
     public Result modify(@PathVariable Integer id,@RequestBody Task task){
         testService.modify(id,task);
         return Result.success();
     }
-    @PostMapping("/task/delete/:{id}")
+    @PostMapping("/delete/:{id}")
     public Result deleteById(@PathVariable Integer id){
         testService.deleteById(id);
         return Result.success();
