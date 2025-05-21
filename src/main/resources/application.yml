@@ -9,10 +9,14 @@ spring:
     username: our
     password: admin123
     driver-class-name: com.mysql.cj.jdbc.Driver
-#  main:
-#    web-application-type: reactive
-#    banner-mode: off
+
   ai:
+    openai:
+      api-key: #模型API密钥
+      base-url: #模型提供商API地址
+      chat:
+        options:
+          model: #可用模型
     mcp:
       server:
         stdio: false
