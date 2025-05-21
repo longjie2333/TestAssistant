@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.our.testassistantback.Mapper.TaskMapper">
+    <insert id="newTask" parameterType="com.our.testassistantback.pojo.Task" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO task (pid, name, description)
+        VALUES (#{pid}, #{name}, #{description})
+    </insert>
+
+    <!--<update id="modify">
+       update from task
+        <set>
+           <if test="name != null and name !=''"> name = #{name},</if>
+          <if test="description !=null and description !='' ">description = #{description},</if>
+           <if test="benchmark !=null and benchmark != ''">benchmark = #{benchmark},</if>
+           <if test="testcase !=null and testcase != ''">testcase = #{testcase}</if>
+        </set>
+       where id = #{id}
+   </update>-->
+
+    <!-- TaskMapper.xml -->
+<update id="modify">
+    UPDATE task
+    <set>
+        <if test="task.name != null">name = #{task.name},</if>
+        <if test="task.description != null">description = #{task.description},</if>
+        <if test="task.pid != null">pid = #{task.pid},</if>
+        <if test="task.aid != null">aid = #{task.aid},</if>
+        <if test="task.benchmark != null">benchmark = #{task.benchmark},</if>
+        <if test="task.testcase != null">testcase = #{task.testcase}</if>
+    </set>
+    WHERE id = #{id}
+</update>
+</mapper>

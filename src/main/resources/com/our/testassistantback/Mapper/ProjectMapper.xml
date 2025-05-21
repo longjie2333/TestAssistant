@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.our.testassistantback.Mapper.ProjectMapper">
+    <update id="modify">
+        update
+        project
+        <set>
+            <if test="uid != null">uid=#{uid},</if>
+            <if test="name != null and name!=''">name = #{name},</if>
+            <if test="description != null and description !='' ">description = #{description}</if>
+        </set>
+        where id = #{id}
+    </update>
+</mapper><!-- logback.xml 示例 -->
+
+
+

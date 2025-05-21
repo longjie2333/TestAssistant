@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: aitesting-back
+  datasource:
+    url: jdbc:mysql://159.138.135.69:3306/aitesting?useSSL=true
+    username: our
+    password: admin123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#  main:
+#    web-application-type: reactive
+#    banner-mode: off
+  ai:
+    mcp:
+      server:
+        stdio: false
+        name: TestAssistantMcp
+        version: 1.0.0
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+#spring事务管理日志
+logging:
+  level:
+
+    # MyBatis Mapper层SQL日志
+    com.example.aitestingback.Mapper: TRACE
+
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
+
+
