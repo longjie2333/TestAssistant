@@ -23,12 +23,10 @@
 <update id="modify">
     UPDATE task
     <set>
-        <if test="task.name != null">name = #{task.name},</if>
-        <if test="task.description != null">description = #{task.description},</if>
-        <if test="task.pid != null">pid = #{task.pid},</if>
-        <if test="task.aid != null">aid = #{task.aid},</if>
-        <if test="task.benchmark != null">benchmark = #{task.benchmark},</if>
-        <if test="task.testcase != null">testcase = #{task.testcase}</if>
+        <if test="task.name != null and task.name != ''">name = #{task.name},</if>
+        <if test="task.description != null and task.description != ''">description = #{task.description},</if>
+        <if test="task.benchmark != null and task.benchmark != ''">benchmark = #{task.benchmark},</if>
+        <if test="task.testcase != null and task.testcase != ''">testcase = #{task.testcase}</if>
     </set>
     WHERE id = #{id}
 </update>

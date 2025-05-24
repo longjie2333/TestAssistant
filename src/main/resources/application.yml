@@ -3,9 +3,9 @@ server:
 
 spring:
   application:
-    name: aitesting-back
+    name: testassistant-back
   datasource:
-    url: jdbc:mysql://159.138.135.69:3306/aitesting?useSSL=true
+    url: jdbc:mysql://159.138.135.69:3306/testassistant?useSSL=true
     username: our
     password: admin123
     driver-class-name: com.mysql.cj.jdbc.Driver
