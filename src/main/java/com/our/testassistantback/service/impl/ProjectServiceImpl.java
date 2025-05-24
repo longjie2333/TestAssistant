@@ -15,9 +15,8 @@ public class ProjectServiceImpl implements ProjectService {
     private ProjectMapper projectMapper;
 
     @Override
-    public List<Project> selectProject() {
-
-        return projectMapper.selectAll();
+    public List<Project> selectProjectById(int uid) {
+        return projectMapper.selectAll(uid);
     }
 
     @Override

@@ -8,8 +8,8 @@ import java.util.List;
 @Mapper
 public interface ProjectMapper {
 
-    @Select("select * from project")
-    List<Project> selectAll();
+    @Select("select * from project where uid = #{uid}")
+    List<Project> selectAll(int uid);
 
     @Select("select * from project where id = #{id}")
     Project detailId(Integer id);

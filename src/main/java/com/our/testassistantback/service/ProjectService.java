@@ -5,7 +5,7 @@ import com.our.testassistantback.pojo.Project;
 import java.util.List;
 
 public interface ProjectService {
-    List<Project> selectProject();
+    List<Project> selectProjectById(int uid);
 
     Project detailId(Integer id);
 

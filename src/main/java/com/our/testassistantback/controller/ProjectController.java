@@ -25,7 +25,10 @@ public class ProjectController {
 
     @GetMapping("/all")
     public Result getProject(){
-        List<Project> projects = projectService.selectProject();
+        String authorization = httpServletRequest.getHeader("Authorization");
+        Claims claims = JwtUtils.parseJWT(authorization);
+        int id = claims.get("id", Integer.class);
+        List<Project> projects = projectService.selectProjectById(id);
         return Result.success(projects);
     }
     @GetMapping("/detail/:{id}")
